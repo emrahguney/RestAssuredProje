@@ -15,7 +15,8 @@ import static org.hamcrest.Matchers.*;
 
 public class Utility {
     Faker faker = new Faker();
-    RequestSpecification requestSpecification;
+   public static RequestSpecification reqSpec;
+
 
     @BeforeClass
     public void login(){
@@ -38,7 +39,7 @@ public class Utility {
                 .extract().response().getDetailedCookies()
                 ;
 
-        requestSpecification = new RequestSpecBuilder()
+        reqSpec = new RequestSpecBuilder()
                 .setContentType(ContentType.JSON)
                 .addCookies(cookies)
                 .build();
